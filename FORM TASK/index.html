@@ -1,0 +1,168 @@
+<!-- 1.FORM & TABLE TASK -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Form and Table Example</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 99%;
+    }
+    th, td {
+      text-align: left;
+      padding: 6px;
+      border: 2px solid red
+    }
+    form {
+      width: 50%;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 2px solid #10a34d;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type=submit] {
+      background-color: #320b5e;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type=submit]:hover {
+      background-color: #9e1b22;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="myForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="pincode">Pincode:</label>
+    <input type="text" id="pincode" name="pincode" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="food">Choice of food (Choose at least 2):</label>
+    <input type="checkbox" id="food1" name="food1" value="Burger">
+    <label for="food1">Burger</label>
+    <input type="checkbox" id="food2" name="food2" value="Pizza">
+    <label for="food2">Pizza</label>
+    <input type="checkbox" id="food3" name="food3" value="Sushi">
+    <label for="food3">Sushi</label>
+    <input type="checkbox" id="food4" name="food4" value="Tacos">
+    <label for="food4">Tacos</label>
+    <input type="checkbox" id="food5" name="food5" value="Pasta">
+    <label for="food5">Pasta</label>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <h2>Table</h2>
+  <table id="myTable">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>PinCode</th>
+        <th>Gender</th>
+        <th>Food</th>
+        <th>State</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+       <!Table rows will be dynamically added here --> 
+    </tbody>
+  </table> 
+  <script>
+    const form = document.getElementById("myForm");
+    const table = document.getElementById("myTable");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form submission
+      const formData = new FormData(form);
+      const firstName = formData.get("firstName");
+      const lastName = formData.get("lastName");
+      const address = formData.get("address");
+      const pincode = formData.get("pincode");
+      const gender = formData.get("gender");
+      const food = [];
+      const food1 = formData.get("food1");
+      const food2 = formData.get("food2");
+      const food3 = formData.get("food3");
+      const food4 = formData.get("food4");
+      const food5 = formData.get("food5");
+      if (food1) food.push(food1);
+      if (food2) food.push(food2);
+      if (food3) food.push(food3);
+      if (food4) food.push(food4);
+      if (food5) food.push(food5);
+      const state = formData.get("state");
+      const country = formData.get("country");
+
+      // Append form data to table
+      const row = table.insertRow(-1);
+      const firstNameCell = row.insertCell(0);
+      const lastNameCell = row.insertCell(1);
+      const addressCell = row.insertCell(2);
+      const pinCodeCell = row.insertCell(3);
+      const genderCell = row.insertCell(4);
+      const foodCell = row.insertCell(5);
+      const stateCell = row.insertCell(6);
+      const countryCell = row.insertCell(7);
+      firstNameCell.textContent = firstName;
+      lastNameCell.textContent = lastName;
+      addressCell.textContent = address;
+      pinCodeCell.textContent = pinCode;
+      genderCell.textContent = gender;
+      foodCell.textContent = food.join(", ");
+      stateCell.textContent = state;
+      countryCell.textContent = country;
+
+      // Clear form fields
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>  
+
+
+
+
+
+
+
+  

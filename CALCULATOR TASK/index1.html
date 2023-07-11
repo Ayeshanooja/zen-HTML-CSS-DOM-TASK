@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+ 
+<div class="container">
+                <div class="calculator">
+                 <div class="display">
+                   <p class="data"></p>
+                 </div>
+                 <div class="bottom">
+                  <div id="row1">
+                    <button style="color:orange;" id="AC" class="AC">AC</button>
+                    <button style="color:orange;" id="DE" class="DE">DE</button>
+                    <button style="color:orange;" onclick="btn(this)" class=".">.</button>
+                    <button style="color:orange;" onclick="btn(this)" class="/">/</button><br>
+                  </div>
+                  <div class="row2">
+                    <button onclick="btn(this)" class="7">7</button>
+                    <button onclick="btn(this)" class="8">8</button>
+                    <button onclick="btn(this)" class="9">9</button>
+                    <button style="color:orange;" onclick="btn(this)" class="*">*</button><br>
+                  </div>
+                  <div class="row3">
+                    <button onclick="btn(this)" class="4">4</button>
+                    <button onclick="btn(this)" class="5">5</button>
+                    <button onclick="btn(this)" class="6">6</button>
+                    <button style="color:orange;" onclick="btn(this)" class="-">-</button><br>
+                  </div>
+                  <div class="row4">
+                    <button onclick="btn(this)" class="1">1</button>
+                    <button onclick="btn(this)" class="2">2</button>
+                    <button onclick="btn(this)" class="3">3</button>
+                    <button style="color:orange;" onclick="btn(this)" class="+">+</button><br>
+                  </div>
+                 <div class="row5">
+                    <button onclick="btn(this)" class="00">00</button>
+                    <button onclick="btn(this)" class="0">0</button>
+                    <button style="color:orange;"  id="unique" class="=">=</button><br>
+                 </div>
+                 </div>
+                </div>
+                
+            </div>          
+            
+            
+</body>
+<script src="index.js"></script>
+</html>
